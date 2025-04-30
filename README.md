@@ -22,3 +22,23 @@
 - Open Trivia Database API
 - Web Storage API (LocalStorage)
 - Canvas o SVG para gráficos (sin librerías externas)
+
+🧪 Funcionalidades implementadas
+✅ Manipulación dinámica del DOM
+
+✅ SPA funcional (sin recarga de página)
+
+✅ Peticiones asincrónicas con fetch a la API externa
+
+✅ Guardado de resultados en Local Storage
+
+✅ Gráfica final con porcentaje de aciertos
+
+✅ Buenas prácticas, código comentado y estructurado
+
+📝 Contribuciones
+¡Las contribuciones son bienvenidas! Puedes enviar issues o pull requests si tienes ideas, encuentras errores o quieres colaborar.
+
+📄 Licencia
+Este proyecto está bajo la licencia MIT.
+
