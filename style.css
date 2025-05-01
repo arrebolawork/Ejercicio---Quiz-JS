@@ -5,3 +5,73 @@
     margin: 0;
     font-size: 14px;
 }
+
+body {
+    background-color: #c2dfef;
+}
+
+header {
+    background-color: #0b80c1;
+    color: white;
+    padding: 1em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    gap: 1.5em;
+}
+
+button {
+    padding: 1em;
+    border: 0px;
+    border-radius: 0.5em;
+    background-color: #0b80c1;
+    color: white;
+    cursor: pointer;
+}
+
+button.answer {
+    padding: 1.5em;
+}
+
+#answerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#nextQuestion {
+    align-self: flex-end;
+}
+
+button.answer:nth-child(1) {
+    background-color: #ee5656;
+}
+
+button.answer:nth-child(2) {
+    background-color: #eedf56;
+}
+
+button.answer:nth-child(3) {
+    background-color: #56ee9c;
+}
+
+button.answer:nth-child(4) {
+    background-color: #56d3ee;
+}
+
+section {
+    border-radius: 1em;
+    background-color: white;
+    padding: 20px;
+    /*box-shadow: ;*/
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+section.startQuiz, section.results {
+    align-items: center;
+}

@@ -4,7 +4,26 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="./main.js" defer></script>
+        <link rel="stylesheet" href="./style.css">
         <title>Quiz-JS</title>
     </head>
-    <body></body>
+    <body>
+        <header>Quiz</header>
+        <main>
+            <section class="startQuiz">
+                <h2>Welcome to the quiz!</h2>
+                <button id="startQuiz">Take the Quiz</button>
+            </section>
+            <section>
+                <h2>Your stats</h2>
+                <canvas id="stats"></canvas>
+                <div class="latestAttempts">
+                    <p>16/12/2020 <b>8 aciertos</b></p>
+                    <p>15/12/2020 <b>1 aciertos</b></p>
+                    <p>14/12/2020 <b>6 aciertos</b></p>
+                    <p>13/12/2020 <b>0 aciertos</b></p>
+                </div>
+            </section>
+        </main>
+    </body>
 </html>
