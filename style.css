@@ -12,33 +12,41 @@ body {
 header {
     background-color: #0b80c1;
     color: white;
-    padding: 1em;
+    padding: 1rem;
 }
 
 main {
     display: flex;
     flex-direction: column;
-    padding: 2em;
-    gap: 1.5em;
+    padding: 2rem;
+    gap: 1.5rem;
 }
 
 button {
-    padding: 1em;
+    padding: 1rem;
     border: 0px;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     background-color: #0b80c1;
     color: white;
     cursor: pointer;
 }
 
 button.answer {
-    padding: 1.5em;
+    padding: 1.5rem;
+}
+
+button.answer.correct {
+    outline: 3px #30a020 solid;
+}
+
+button.answer.incorrect {
+    outline: 3px #d02020 solid;
 }
 
 #answerContainer {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1rem;
 }
 
 #buttonContainer {
@@ -49,6 +57,10 @@ button.answer {
 
 #nextQuestion {
     align-self: flex-end;
+}
+
+#nextQuestion:disabled {
+    background-color: #aaa;
 }
 
 button.answer:nth-child(1) {
@@ -68,7 +80,7 @@ button.answer:nth-child(4) {
 }
 
 section {
-    border-radius: 1em;
+    border-radius: 1rem;
     background-color: white;
     padding: 20px;
     /*box-shadow: ;*/

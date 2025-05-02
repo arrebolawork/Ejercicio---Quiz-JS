@@ -4,6 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="./main.js" defer></script>
+        <script defer>
+            document.addEventListener("DOMContentLoaded", () => {
+                initQuiz();
+            })</script>
         <link rel="stylesheet" href="./style.css" />
         <title>Quiz-JS</title>
     </head>
@@ -11,7 +15,7 @@
         <header>Quiz</header>
         <main>
             <section>
-                <h2>Insertar pregunta</h2>
+                <h2 id="question">Insertar pregunta</h2>
                 <div>
                     <div id="answerContainer">
                         <button class="answer">Answer 1</button>
