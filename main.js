@@ -112,10 +112,11 @@ function verifyAnswer(answerIndex) {
 }
 
 function finishGame() {
+    game.endDate = new Date();
     if (localStorage.finishedGames == undefined) {
         localStorage.finishedGames = JSON.stringify(game);
     } else {
-        localStorage += ',' + JSON.stringify(game);
+        localStorage.finishedGames += ',' + JSON.stringify(game);
     }
 
     localStorage.removeItem('currentGame');
