@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="./main.js" defer></script>
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./style.css" />
         <title>Quiz-JS</title>
     </head>
     <body>
@@ -12,14 +12,17 @@
         <main>
             <section>
                 <h2>Insertar pregunta</h2>
-                <div id="answerContainer">
-                    <button class="answer">Answer 1</button>
-                    <button class="answer">Answer 2</button>
-                    <button class="answer">Answer 3</button>
-                    <button class="answer">Answer 4</button>
+                <div>
+                    <div id="answerContainer">
+                        <button class="answer">Answer 1</button>
+                        <button class="answer">Answer 2</button>
+                        <button class="answer">Answer 3</button>
+                        <button class="answer">Answer 4</button>
+                    </div>
+                    <div id="buttonContainer">
+                        <button id="nextQuestion">Next</button>
+                    </div>
                 </div>
-                <div></div><!-- No me gusta pero truquito rápido para separar más el botón de siguiente pregunta-->
-                <button id="nextQuestion">Next</button>
             </section>
         </main>
     </body>
