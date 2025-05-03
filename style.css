@@ -42,7 +42,17 @@ button.answer.correct {
 button.answer.incorrect {
     outline: 3px #d02020 solid;
 }
-
+nav {
+    margin-top: 1rem;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+nav ul li a {
+    color: #ffffff;
+}
 #answerContainer {
     display: flex;
     flex-direction: column;
@@ -92,4 +102,7 @@ section {
 section.startQuiz,
 section.results {
     align-items: center;
+}
+.active {
+    text-decoration: underline;
 }

@@ -8,7 +8,11 @@ fetch(`https://quizapi.io/api/v1/questions?limit=${limit}`, {
     .then(res => res.json())
     .then(data => console.log(data)); // mirar en consola el JSON que nos trae!!! gada llamada trae un array aleatorio!
 
-
+document.querySelectorAll('nav ul li a').forEach(link => {
+    if (link.href === window.location.href) {
+        link.classList.add('active');
+    }
+});
 let game = {
     name: 'David',
     startDate: new Date(),
