@@ -1,4 +1,4 @@
-const API_KEY = 'IHSk9PSzlcpF64fg1XaNabp9O06vHFmGlFxtsxaz';
+const API_KEY = 'xynoFt4bxw7Jh2iMJ95RUpvCmwdskbC79nabEGzP'; // xynoFt4bxw7Jh2iMJ95RUpvCmwdskbC79nabEGzP
 const answerButtons = document.getElementById('answerContainer')?.children;
 const nextQuestionBtn = document.getElementById('nextQuestion');
 const question = document.getElementById('question');
@@ -29,7 +29,7 @@ async function getQuestions() {
                     answers: [question.answers.answer_a, question.answers.answer_b, question.answers.answer_c, question.answers.answer_d],
                     correctAnswer: Object.entries(question.correct_answers)
                         .filter(entry => entry[1] === 'true')
-                        .map(entry => entry[0][7].charCodeAt(65))[0],
+                        .map(entry => entry[0].charCodeAt(7) - 97)[0],
                 };
             })
         ); // mirar en consola el JSON que nos trae!!! gada llamada trae un array aleatorio!
