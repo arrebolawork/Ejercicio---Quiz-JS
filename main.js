@@ -66,7 +66,7 @@ async function startGame(userName) {
     };
     newGame.questions = await getQuestions();
     localStorage.setItem('currentGame', JSON.stringify(newGame));
-    // location.href = './question.html';
+    location.href = './question.html';
 }
 
 function initQuiz() {
@@ -97,7 +97,7 @@ function showNextQuestion() {
         return;
     }
 
-    question.innerText = currentQuestion.question;
+    question.innerText = `${game.currentQuestion + 1}. ${currentQuestion.question}`;
     Array.from(answerButtons).forEach((button, i) => {
         button.innerText = currentQuestion.answers[i];
         button.classList.remove('correct', 'incorrect');
