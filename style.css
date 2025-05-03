@@ -93,3 +93,15 @@ section.startQuiz,
 section.results {
     align-items: center;
 }
+
+
+@media (min-width: 600px) {
+    #answerContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    button.answer {
+        flex: 1 calc(50% - 0.5rem);
+    }
+}
