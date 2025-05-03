@@ -42,7 +42,17 @@ button.answer.correct {
 button.answer.incorrect {
     outline: 3px #d02020 solid;
 }
-
+nav {
+    margin-top: 1rem;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+nav ul li a {
+    color: #ffffff;
+}
 #answerContainer {
     display: flex;
     flex-direction: column;
@@ -61,6 +71,13 @@ button.answer.incorrect {
 
 #nextQuestion:disabled {
     background-color: #aaa;
+}
+
+#userName {
+    padding: 1rem;
+    border: 0px;
+    border-radius: 0.5rem;
+    background-color: #caf1fa;
 }
 
 button.answer:nth-child(1) {
@@ -93,7 +110,19 @@ section.startQuiz,
 section.results {
     align-items: center;
 }
+.active {
+    text-decoration: underline;
+}
+#errorSvg {
+    display: none;
+    width: 25px;
+}
 
+#inputNameContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
 @media (min-width: 600px) {
     #answerContainer {

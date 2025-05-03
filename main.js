@@ -1,67 +1,80 @@
 const API_KEY = 'IHSk9PSzlcpF64fg1XaNabp9O06vHFmGlFxtsxaz';
-const limit = 10; //como máximo devuelve 20
-fetch(`https://quizapi.io/api/v1/questions?limit=${limit}`, {
-    headers: {
-        'X-Api-Key': API_KEY,
-    },
-})
-    .then(res => res.json())
-    .then(data => console.log(data)); // mirar en consola el JSON que nos trae!!! gada llamada trae un array aleatorio!
-
-
-let game = {
-    name: 'David',
-    startDate: new Date(),
-    endDate: null,
-    questions: [
-        {
-            question: 'Which PHP function is used to execute a system command for file operations?',
-            answers: ['exec()', 'system()', 'shell_exec()', 'All of the above'],
-            correctAnswer: 3,
-        },
-        {
-            question: 'What is the purpose of Django middleware?',
-            answers: [
-                'To define database models',
-                'To handle HTTP requests and responses',
-                'To manage frontend templates',
-                'To secure API endpoints',
-            ],
-            correctAnswer: 1,
-        },
-        {
-            question: 'Which is the log in which data changes received from a replication master server are written?',
-            answers: ['Error Log', 'Relay Log', 'General Query Log', 'Binary Log'],
-            correctAnswer: 1,
-        },
-        {
-            question: 'What does `ls -l` display?',
-            answers: [
-                'Only filenames',
-                'Detailed file information including permissions, size, and modification date',
-                'Files sorted by modification date',
-                'Only directories',
-            ],
-            correctAnswer: 1,
-        },
-    ],
-    currentQuestion: 0,
-    currentAnswered: false,
-    answers: [],
-    score: 0,
-};
-
-const answerButtons = document.getElementById('answerContainer').children;
+const answerButtons = document.getElementById('answerContainer')?.children;
 const nextQuestionBtn = document.getElementById('nextQuestion');
 const question = document.getElementById('question');
+const startQuizBtn = document.getElementById('startQuiz');
+const limit = 10; //como máximo devuelve 20
+let game;
+
+switch (window.location.pathname.split('/').pop()) {
+    case 'question.html':
+        initQuiz();
+        break;
+    case 'index.html':
+        startQuizBtn.addEventListener('click', nameValidate);
+        break;
+}
+
+async function getQuestions() {
+    return await fetch(`https://quizapi.io/api/v1/questions?limit=${limit}`, {
+        headers: {
+            'X-Api-Key': API_KEY,
+        },
+    })
+        .then(res => res.json())
+        .then(data =>
+            data.map(question => {
+                return {
+                    question: question.question,
+                    answers: [question.answers.answer_a, question.answers.answer_b, question.answers.answer_c, question.answers.answer_d],
+                    correctAnswer: Object.entries(question.correct_answers)
+                        .filter(entry => entry[1] === 'true')
+                        .map(entry => entry[0][7].charCodeAt(65))[0],
+                };
+            })
+        ); // mirar en consola el JSON que nos trae!!! gada llamada trae un array aleatorio!
+}
+// document.querySelectorAll('nav ul li a').forEach(link => {
+//     if (link.href === window.location.href) {
+//         link.classList.add('active');
+//     }
+// });
+
+function nameValidate() {
+    const userName = document.getElementById('userName');
+    const errorSvg = document.getElementById('errorSvg');
+    userName.style.border = 'none';
+    errorSvg.style.display = 'none';
+
+    if (userName.value.trim() === '') {
+        userName.style.border = '1px solid #FD0808FF';
+        errorSvg.style.display = 'block';
+    } else {
+        startGame(userName.value);
+    }
+}
+async function startGame(userName) {
+    const newGame = {
+        name: userName,
+        startDate: new Date(),
+        endDate: null,
+        questions: [],
+        currentQuestion: 0,
+        currentAnswered: false,
+        answers: [],
+        score: 0,
+    };
+    newGame.questions = await getQuestions();
+    localStorage.setItem('currentGame', JSON.stringify(newGame));
+    // location.href = './question.html';
+}
 
 function initQuiz() {
-    // descomentar cuando se guarde en localStorage
-    //game = JSON.parse(localStorage.getItem("currentGame"));
-    /* if (game == null) {
+    game = JSON.parse(localStorage.getItem('currentGame'));
+    if (game == null) {
         location.href = './index.html';
         return;
-    } */
+    }
 
     addEvents();
     showNextQuestion();

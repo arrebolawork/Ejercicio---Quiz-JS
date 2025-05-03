@@ -4,14 +4,76 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="./main.js" defer></script>
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./style.css" />
         <title>Quiz-JS</title>
     </head>
     <body>
-        <header>Quiz</header>
+        <header>
+            <h1>Quiz</h1>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./question.html">Questions</a></li>
+                </ul>
+            </nav>
+        </header>
         <main>
             <section class="startQuiz">
                 <h2>Welcome to the quiz!</h2>
+                <div id="inputNameContainer">
+                    <input type="text" name="userName" id="userName" placeholder="enter name" /><svg
+                        id="errorSvg"
+                        xmlns="http://www.w3.org/2000/svg"
+                        x="0px"
+                        y="0px"
+                        viewBox="14 14 36 36"
+                        enable-background="new 0 0 64 64"
+                    >
+                        <g>
+                            <g></g>
+
+                            <circle
+                                fill="#FFFFFF"
+                                stroke="#FD0808FF"
+                                stroke-width="1"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-miterlimit="10"
+                                cx="32"
+                                cy="32"
+                                r="17.5"
+                            />
+                        </g>
+                        <g>
+                            <line
+                                fill="none"
+                                stroke="#FD0808FF"
+                                stroke-width="1"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-miterlimit="10"
+                                x1="39"
+                                y1="25"
+                                x2="25"
+                                y2="39"
+                            />
+
+                            <line
+                                fill="none"
+                                stroke="#FD0808FF"
+                                stroke-width="1"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-miterlimit="10"
+                                x1="39"
+                                y1="39"
+                                x2="25"
+                                y2="25"
+                            />
+                        </g>
+                    </svg>
+                </div>
+
                 <button id="startQuiz">Take the Quiz</button>
             </section>
             <section>
