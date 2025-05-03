@@ -73,6 +73,13 @@ nav ul li a {
     background-color: #aaa;
 }
 
+#userName {
+    padding: 1rem;
+    border: 0px;
+    border-radius: 0.5rem;
+    background-color: #caf1fa;
+}
+
 button.answer:nth-child(1) {
     background-color: #ee5656;
 }
@@ -105,4 +112,14 @@ section.results {
 }
 .active {
     text-decoration: underline;
+}
+#errorSvg {
+    display: none;
+    width: 25px;
+}
+
+#inputNameContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
