@@ -27,7 +27,9 @@ async function getQuestions() {
                 return {
                     question: question.question,
                     answers: [question.answers.answer_a, question.answers.answer_b, question.answers.answer_c, question.answers.answer_d],
-                    correctAnswer: Object.entries(question.correct_answers).filter(entry => entry[1] === 'true'),
+                    correctAnswer: Object.entries(question.correct_answers)
+                        .filter(entry => entry[1] === 'true')
+                        .map(entry => entry[0][7].charCodeAt(65))[0],
                 };
             })
         ); // mirar en consola el JSON que nos trae!!! gada llamada trae un array aleatorio!
@@ -64,50 +66,8 @@ async function startGame(userName) {
     };
     newGame.questions = await getQuestions();
     localStorage.setItem('currentGame', JSON.stringify(newGame));
-    location.href = './question.html';
+    // location.href = './question.html';
 }
-
-// let game = {
-//     name: 'David',
-//     startDate: new Date(),
-//     endDate: null,
-//     questions: [
-//         {
-//             question: 'Which PHP function is used to execute a system command for file operations?',
-//             answers: ['exec()', 'system()', 'shell_exec()', 'All of the above'],
-//             correctAnswer: 3,
-//         },
-//         {
-//             question: 'What is the purpose of Django middleware?',
-//             answers: [
-//                 'To define database models',
-//                 'To handle HTTP requests and responses',
-//                 'To manage frontend templates',
-//                 'To secure API endpoints',
-//             ],
-//             correctAnswer: 1,
-//         },
-//         {
-//             question: 'Which is the log in which data changes received from a replication master server are written?',
-//             answers: ['Error Log', 'Relay Log', 'General Query Log', 'Binary Log'],
-//             correctAnswer: 1,
-//         },
-//         {
-//             question: 'What does `ls -l` display?',
-//             answers: [
-//                 'Only filenames',
-//                 'Detailed file information including permissions, size, and modification date',
-//                 'Files sorted by modification date',
-//                 'Only directories',
-//             ],
-//             correctAnswer: 1,
-//         },
-//     ],
-//     currentQuestion: 0,
-//     currentAnswered: false,
-//     answers: [],
-//     score: 0,
-// };
 
 function initQuiz() {
     game = JSON.parse(localStorage.getItem('currentGame'));
