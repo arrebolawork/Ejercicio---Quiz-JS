@@ -3,16 +3,29 @@ const answerButtons = document.getElementById('answerContainer')?.children;
 const nextQuestionBtn = document.getElementById('nextQuestion');
 const question = document.getElementById('question');
 const startQuizBtn = document.getElementById('startQuiz');
+const startQuizResult = document.getElementById('startQuizResult');
+const goHome = document.getElementById('goHome');
 const limit = 10; //como máximo devuelve 20
+
 let game;
 
 switch (window.location.pathname.split('/').pop()) {
     case 'question.html':
+        checkNavVisibility();
         initQuiz();
         break;
     case 'index.html':
+        checkNavVisibility();
         startQuizBtn.addEventListener('click', nameValidate);
         break;
+    case 'results.html':
+        showResults();
+        startQuizResult.addEventListener('click', () => {
+            const resultGames = JSON.parse(`[${localStorage.getItem('finishedGames')}]`);
+            const lastGame = resultGames[resultGames.length - 1];
+            startGame(lastGame.name);
+        });
+        goHome.addEventListener('click', () => (location.href = './index.html'));
 }
 
 async function getQuestions() {
@@ -131,8 +144,45 @@ function finishGame() {
     } else {
         localStorage.finishedGames += ',' + JSON.stringify(game);
     }
-
+    const navBar = document.querySelector('nav');
+    navBar.style.display = 'none';
     localStorage.removeItem('currentGame');
 
     location.href = './results.html';
+}
+function checkNavVisibility() {
+    const navBar = document.querySelector('nav');
+    const hasGame = localStorage.getItem('currentGame') !== null;
+
+    if (navBar) {
+        navBar.style.display = hasGame ? 'block' : 'none';
+    }
+}
+function showResults() {
+    const tableBody = document.querySelector('tbody');
+    const resultGames = JSON.parse(`[${localStorage.getItem('finishedGames')}]`);
+
+    const lastGame = resultGames[resultGames.length - 1];
+
+    lastGame.questions.forEach((questionObj, index) => {
+        const userAnswerIndex = lastGame.answers[index];
+        const correctAnswerIndex = questionObj.correctAnswer;
+
+        const tr = document.createElement('tr');
+
+        const tdQuestion = document.createElement('td');
+        tdQuestion.textContent = questionObj.question;
+
+        const tdCorrect = document.createElement('td');
+        tdCorrect.textContent = questionObj.answers[correctAnswerIndex];
+
+        const tdUser = document.createElement('td');
+        tdUser.textContent = questionObj.answers[userAnswerIndex];
+        tdUser.style.backgroundColor = userAnswerIndex === correctAnswerIndex ? '#c8f7c5' : '#f7c5c5'; // verde o rojo
+
+        tr.appendChild(tdQuestion);
+        tr.appendChild(tdCorrect);
+        tr.appendChild(tdUser);
+        tableBody.appendChild(tr);
+    });
 }
