@@ -193,7 +193,10 @@ function showResults() {
 function loadStats() {
     const games = getResults();
     const latestGames = document.getElementById('latestAttempts');
-    games.reverse().forEach(game => {
-        latestGames.innerHTML += `<p>${game.endDate.split('T')[0]} <b>${game.score} aciertos</b></p>`;
-    });
+    games
+        .slice(-10)
+        .reverse()
+        .forEach(game => {
+            latestGames.innerHTML += `<p>${game.endDate.split('T')[0]} <b>${game.score} aciertos</b></p>`;
+        });
 }
