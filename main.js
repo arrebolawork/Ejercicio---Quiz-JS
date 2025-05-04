@@ -4,6 +4,7 @@ const nextQuestionBtn = document.getElementById('nextQuestion');
 const question = document.getElementById('question');
 const startQuizBtn = document.getElementById('startQuiz');
 const startQuizResult = document.getElementById('startQuizResult');
+const goHome = document.getElementById('goHome');
 const limit = 10; //como máximo devuelve 20
 
 let game;
@@ -24,6 +25,7 @@ switch (window.location.pathname.split('/').pop()) {
             const lastGame = resultGames[resultGames.length - 1];
             startGame(lastGame.name);
         });
+        goHome.addEventListener('click', () => (location.href = './index.html'));
 }
 
 async function getQuestions() {
