@@ -45,13 +45,8 @@ async function getQuestions() {
                         .map(entry => entry[0].charCodeAt(7) - 97)[0],
                 };
             })
-        ); // mirar en consola el JSON que nos trae!!! gada llamada trae un array aleatorio!
+        );
 }
-// document.querySelectorAll('nav ul li a').forEach(link => {
-//     if (link.href === window.location.href) {
-//         link.classList.add('active');
-//     }
-// });
 
 function nameValidate() {
     const userName = document.getElementById('userName');
