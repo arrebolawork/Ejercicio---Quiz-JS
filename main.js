@@ -4,13 +4,16 @@ const nextQuestionBtn = document.getElementById('nextQuestion');
 const question = document.getElementById('question');
 const startQuizBtn = document.getElementById('startQuiz');
 const limit = 10; //como máximo devuelve 20
+
 let game;
 
 switch (window.location.pathname.split('/').pop()) {
     case 'question.html':
+        checkNavVisibility();
         initQuiz();
         break;
     case 'index.html':
+        checkNavVisibility();
         startQuizBtn.addEventListener('click', nameValidate);
         break;
 }
@@ -131,8 +134,16 @@ function finishGame() {
     } else {
         localStorage.finishedGames += ',' + JSON.stringify(game);
     }
-
+    navBar.style.display = 'none';
     localStorage.removeItem('currentGame');
 
     location.href = './results.html';
+}
+function checkNavVisibility() {
+    const navBar = document.querySelector('nav');
+    const hasGame = localStorage.getItem('currentGame') !== null;
+
+    if (navBar) {
+        navBar.style.display = hasGame ? 'block' : 'none';
+    }
 }

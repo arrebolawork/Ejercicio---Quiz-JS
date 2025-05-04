@@ -43,6 +43,7 @@ button.answer.incorrect {
     outline: 3px #d02020 solid;
 }
 nav {
+    display: none;
     margin-top: 1rem;
 }
 nav ul {
