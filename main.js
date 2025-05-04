@@ -1,4 +1,4 @@
-const API_KEY = 'xynoFt4bxw7Jh2iMJ95RUpvCmwdskbC79nabEGzP'; // xynoFt4bxw7Jh2iMJ95RUpvCmwdskbC79nabEGzP
+//const API_KEY = 'xynoFt4bxw7Jh2iMJ95RUpvCmwdskbC79nabEGzP'; // xynoFt4bxw7Jh2iMJ95RUpvCmwdskbC79nabEGzP
 const answerButtons = document.getElementById('answerContainer')?.children;
 const nextQuestionBtn = document.getElementById('nextQuestion');
 const question = document.getElementById('question');
@@ -172,9 +172,11 @@ function showResults() {
 
         const tdQuestion = document.createElement('td');
         tdQuestion.textContent = questionObj.question;
+        tdQuestion.classList = 'columna-oculta';
 
         const tdCorrect = document.createElement('td');
         tdCorrect.textContent = questionObj.answers[correctAnswerIndex];
+        tdCorrect.classList = 'columna-oculta';
 
         const tdUser = document.createElement('td');
         tdUser.textContent = questionObj.answers[userAnswerIndex];
