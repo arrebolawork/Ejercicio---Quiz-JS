@@ -160,10 +160,30 @@ function getResults() {
 }
 
 function showResults() {
-    const tableBody = document.querySelector('tbody');
     const resultGames = getResults();
-
     const lastGame = resultGames[resultGames.length - 1];
+
+    // Texto
+    const textContainer = document.querySelector('section.results .feedback');
+    if (lastGame.score == 10) {
+        textContainer.innerHTML = `
+            <h3>Congratulations ${lastGame.name}!</h3>
+            <p>You got all 10 questions right!</p>
+        `;
+    } else if (lastGame.score >= 5) {
+        textContainer.innerHTML = `
+            <h3>Congratulations ${lastGame.name}!</h3>
+            <p>You passed the quiz with a score of ${lastGame.score}/${10}</p>
+        `;
+    } else {
+        textContainer.innerHTML = `
+            <h3>You failed the quiz, ${lastGame.name}!</h3>
+            <p>You only got ${lastGame.score}/${10} questions right!</p>
+            <p>Keep trying!</p>
+        `;
+    }
+    // Tabla
+    const tableBody = document.querySelector('tbody');
 
     lastGame.questions.forEach((questionObj, index) => {
         const userAnswerIndex = lastGame.answers[index];
