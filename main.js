@@ -14,9 +14,11 @@ switch (window.location.pathname.split('/').pop()) {
         checkNavVisibility();
         initQuiz();
         break;
+    case '':
     case 'index.html':
         checkNavVisibility();
         startQuizBtn.addEventListener('click', nameValidate);
+        loadStats();
         break;
     case 'results.html':
         showResults();
@@ -153,9 +155,13 @@ function checkNavVisibility() {
         navBar.style.display = hasGame ? 'block' : 'none';
     }
 }
+function getResults() {
+    return JSON.parse(`[${localStorage.getItem('finishedGames')}]`);
+}
+
 function showResults() {
     const tableBody = document.querySelector('tbody');
-    const resultGames = JSON.parse(`[${localStorage.getItem('finishedGames')}]`);
+    const resultGames = getResults();
 
     const lastGame = resultGames[resultGames.length - 1];
 
@@ -181,5 +187,13 @@ function showResults() {
         tr.appendChild(tdCorrect);
         tr.appendChild(tdUser);
         tableBody.appendChild(tr);
+    });
+}
+
+function loadStats() {
+    const games = getResults();
+    const latestGames = document.getElementById('latestAttempts');
+    games.reverse().forEach(game => {
+        latestGames.innerHTML += `<p>${game.endDate.split('T')[0]} <b>${game.score} aciertos</b></p>`;
     });
 }
