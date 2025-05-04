@@ -3,6 +3,7 @@ const answerButtons = document.getElementById('answerContainer')?.children;
 const nextQuestionBtn = document.getElementById('nextQuestion');
 const question = document.getElementById('question');
 const startQuizBtn = document.getElementById('startQuiz');
+const startQuizResult = document.getElementById('startQuizResult');
 const limit = 10; //como máximo devuelve 20
 
 let game;
@@ -18,6 +19,11 @@ switch (window.location.pathname.split('/').pop()) {
         break;
     case 'results.html':
         showResults();
+        startQuizResult.addEventListener('click', () => {
+            const resultGames = JSON.parse(`[${localStorage.getItem('finishedGames')}]`);
+            const lastGame = resultGames[resultGames.length - 1];
+            startGame(lastGame.name);
+        });
 }
 
 async function getQuestions() {
@@ -136,6 +142,7 @@ function finishGame() {
     } else {
         localStorage.finishedGames += ',' + JSON.stringify(game);
     }
+    const navBar = document.querySelector('nav');
     navBar.style.display = 'none';
     localStorage.removeItem('currentGame');
 
