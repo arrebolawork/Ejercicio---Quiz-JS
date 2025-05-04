@@ -23,7 +23,7 @@ switch (window.location.pathname.split('/').pop()) {
     case 'results.html':
         showResults();
         startQuizResult.addEventListener('click', () => {
-            const resultGames = JSON.parse(`[${localStorage.getItem('finishedGames')}]`);
+            const resultGames = getResults();
             const lastGame = resultGames[resultGames.length - 1];
             startGame(lastGame.name);
         });
