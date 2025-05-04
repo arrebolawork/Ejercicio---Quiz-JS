@@ -16,6 +16,8 @@ switch (window.location.pathname.split('/').pop()) {
         checkNavVisibility();
         startQuizBtn.addEventListener('click', nameValidate);
         break;
+    case 'results.html':
+        showResults();
 }
 
 async function getQuestions() {
@@ -146,4 +148,32 @@ function checkNavVisibility() {
     if (navBar) {
         navBar.style.display = hasGame ? 'block' : 'none';
     }
+}
+function showResults() {
+    const tableBody = document.querySelector('tbody');
+    const resultGames = JSON.parse(`[${localStorage.getItem('finishedGames')}]`);
+
+    const lastGame = resultGames[resultGames.length - 1];
+
+    lastGame.questions.forEach((questionObj, index) => {
+        const userAnswerIndex = lastGame.answers[index];
+        const correctAnswerIndex = questionObj.correctAnswer;
+
+        const tr = document.createElement('tr');
+
+        const tdQuestion = document.createElement('td');
+        tdQuestion.textContent = questionObj.question;
+
+        const tdCorrect = document.createElement('td');
+        tdCorrect.textContent = questionObj.answers[correctAnswerIndex];
+
+        const tdUser = document.createElement('td');
+        tdUser.textContent = questionObj.answers[userAnswerIndex];
+        tdUser.style.backgroundColor = userAnswerIndex === correctAnswerIndex ? '#c8f7c5' : '#f7c5c5'; // verde o rojo
+
+        tr.appendChild(tdQuestion);
+        tr.appendChild(tdCorrect);
+        tr.appendChild(tdUser);
+        tableBody.appendChild(tr);
+    });
 }
