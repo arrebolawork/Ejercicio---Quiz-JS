@@ -193,11 +193,9 @@ function showResults() {
 
         const tdQuestion = document.createElement('td');
         tdQuestion.textContent = questionObj.question;
-        tdQuestion.classList = 'columna-oculta';
 
         const tdCorrect = document.createElement('td');
         tdCorrect.textContent = questionObj.answers[correctAnswerIndex];
-        tdCorrect.classList = 'columna-oculta';
 
         const tdUser = document.createElement('td');
         tdUser.textContent = questionObj.answers[userAnswerIndex];
