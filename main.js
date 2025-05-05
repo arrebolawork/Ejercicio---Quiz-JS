@@ -212,6 +212,54 @@ function showResults() {
 
 function loadStats() {
     const games = getResults();
+    const chart = Highcharts.chart('stats', {
+        chart: {
+            zoomType: 'x',
+            resetZoomButton: {
+                position: 'left',
+            },
+            animation: false,
+            styledMode: false,
+        },
+        title: {
+            text: 'Your stats',
+            style: {
+                color: '#000000',
+                'font-family': 'Times New Roman',
+            },
+        },
+        subtitle: {
+            text: '',
+        },
+        plotOptions: {},
+        xAxis: {
+            type: 'datetime',
+            ordinal: true,
+        },
+        yAxis: [
+            {
+                title: 'Score',
+                allowDecimals: false,
+                min: 0,
+            },
+        ],
+        tooltip: {
+            xDateFormat: '%Y-%m-%d %H:%M:%S',
+            shared: true,
+        },
+        series: [
+            {
+                data: games.map(game => [new Date(game.endDate).getTime(), game.score]),
+                type: 'line',
+                shadow: false,
+                yAxis: 0,
+                name: 'Score',
+                visible: true,
+                color: '#2080ff',
+            },
+        ],
+    });
+
     const latestGames = document.getElementById('latestAttempts');
     games
         .slice(-10)
