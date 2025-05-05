@@ -203,9 +203,7 @@ function showResults() {
         tdUser.textContent = questionObj.answers[userAnswerIndex];
         tdUser.style.backgroundColor = userAnswerIndex === correctAnswerIndex ? '#c8f7c5' : '#f7c5c5'; // verde o rojo
 
-        tr.appendChild(tdQuestion);
-        tr.appendChild(tdCorrect);
-        tr.appendChild(tdUser);
+        tr.append(tdQuestion, tdCorrect, tdUser);
         tableBody.appendChild(tr);
     });
 }
