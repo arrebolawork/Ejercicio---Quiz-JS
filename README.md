@@ -19,9 +19,9 @@
 -   HTML5
 -   CSS3
 -   JavaScript (ES6+)
--   Open Trivia Database API
+-   QUIZ API
 -   Web Storage API (LocalStorage)
--   Canvas o SVG para gráficos (sin librerías externas)
+-   Gráficos con libreria highcharts
 
 🧪 Funcionalidades implementadas
 ✅ Manipulación dinámica del DOM
@@ -38,6 +38,3 @@
 
 📝 Contribuciones
 ¡Las contribuciones son bienvenidas! Puedes enviar issues o pull requests si tienes ideas, encuentras errores o quieres colaborar.
-
-📄 Licencia
-Este proyecto está bajo la licencia MIT.

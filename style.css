@@ -54,9 +54,16 @@ nav ul {
 nav ul li a {
     color: #ffffff;
 }
+#tableContainer {
+    overflow: auto;
+    max-width: 100%;
+}
 table {
     margin-bottom: 1rem;
     border-collapse: collapse;
+    min-width: 700px;
+    max-width: 1000px;
+    display: block;
 }
 #answerContainer {
     display: flex;
@@ -156,14 +163,5 @@ td {
 
     button.answer {
         flex: 1 calc(50% - 0.5rem);
-    }
-}
-@media (max-width: 700px) {
-    th,
-    td {
-        padding: 0;
-    }
-    .columna-oculta {
-        display: none;
     }
 }
