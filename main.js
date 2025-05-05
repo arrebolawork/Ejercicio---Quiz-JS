@@ -259,12 +259,4 @@ function loadStats() {
             },
         ],
     });
-
-    const latestGames = document.getElementById('latestAttempts');
-    games
-        .slice(-10)
-        .reverse()
-        .forEach(game => {
-            latestGames.innerHTML += `<p>${game.endDate.split('T')[0]} <b>${game.score} aciertos</b></p>`;
-        });
 }
