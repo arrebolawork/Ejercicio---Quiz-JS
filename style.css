@@ -136,11 +136,18 @@ section.results {
     width: 25px;
 }
 
-#inputNameContainer {
+#inputNameForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+#inputNameForm > div {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
+
 #goHome {
     background-color: #aaaaaa;
 }

@@ -2,7 +2,7 @@ const API_KEY = 'xynoFt4bxw7Jh2iMJ95RUpvCmwdskbC79nabEGzP'; // xynoFt4bxw7Jh2iMJ
 const answerButtons = document.getElementById('answerContainer')?.children;
 const nextQuestionBtn = document.getElementById('nextQuestion');
 const question = document.getElementById('question');
-const startQuizBtn = document.getElementById('startQuiz');
+const inputNameForm = document.getElementById('inputNameForm');
 const startQuizResult = document.getElementById('startQuizResult');
 const goHome = document.getElementById('goHome');
 const limit = 10; //como máximo devuelve 20
@@ -17,7 +17,7 @@ switch (window.location.pathname.split('/').pop()) {
     case '':
     case 'index.html':
         checkNavVisibility();
-        startQuizBtn.addEventListener('click', nameValidate);
+        inputNameForm.addEventListener('submit', nameValidate);
         loadStats();
         break;
     case 'results.html':
@@ -50,8 +50,9 @@ async function getQuestions() {
         );
 }
 
-function nameValidate() {
-    const userName = document.getElementById('userName');
+function nameValidate(event) {
+    event.preventDefault();
+    const userName = this.userName;
     const errorSvg = document.getElementById('errorSvg');
     userName.style.border = 'none';
     errorSvg.style.display = 'none';

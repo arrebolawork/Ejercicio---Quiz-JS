@@ -21,61 +21,64 @@
         <main>
             <section class="startQuiz">
                 <h2>Welcome to the quiz!</h2>
-                <div id="inputNameContainer">
-                    <input type="text" name="userName" id="userName" placeholder="enter name" /><svg
-                        id="errorSvg"
-                        xmlns="http://www.w3.org/2000/svg"
-                        x="0px"
-                        y="0px"
-                        viewBox="14 14 36 36"
-                        enable-background="new 0 0 64 64"
-                    >
-                        <g>
-                            <g></g>
+                <form id="inputNameForm">
+                    <div>
+                        <input type="text" name="userName" id="userName" placeholder="Enter name" />
+                        <svg
+                            id="errorSvg"
+                            xmlns="http://www.w3.org/2000/svg"
+                            x="0px"
+                            y="0px"
+                            viewBox="14 14 36 36"
+                            enable-background="new 0 0 64 64"
+                        >
+                            <g>
+                                <g></g>
+    
+                                <circle
+                                    fill="#FFFFFF"
+                                    stroke="#FD0808FF"
+                                    stroke-width="1"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-miterlimit="10"
+                                    cx="32"
+                                    cy="32"
+                                    r="17.5"
+                                />
+                            </g>
+                            <g>
+                                <line
+                                    fill="none"
+                                    stroke="#FD0808FF"
+                                    stroke-width="1"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-miterlimit="10"
+                                    x1="39"
+                                    y1="25"
+                                    x2="25"
+                                    y2="39"
+                                />
+    
+                                <line
+                                    fill="none"
+                                    stroke="#FD0808FF"
+                                    stroke-width="1"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-miterlimit="10"
+                                    x1="39"
+                                    y1="39"
+                                    x2="25"
+                                    y2="25"
+                                />
+                            </g>
+                        </svg>
+                    </div>
+                    <button type="submit">Take the Quiz</button>
+                </form>
 
-                            <circle
-                                fill="#FFFFFF"
-                                stroke="#FD0808FF"
-                                stroke-width="1"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-miterlimit="10"
-                                cx="32"
-                                cy="32"
-                                r="17.5"
-                            />
-                        </g>
-                        <g>
-                            <line
-                                fill="none"
-                                stroke="#FD0808FF"
-                                stroke-width="1"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-miterlimit="10"
-                                x1="39"
-                                y1="25"
-                                x2="25"
-                                y2="39"
-                            />
-
-                            <line
-                                fill="none"
-                                stroke="#FD0808FF"
-                                stroke-width="1"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-miterlimit="10"
-                                x1="39"
-                                y1="39"
-                                x2="25"
-                                y2="25"
-                            />
-                        </g>
-                    </svg>
-                </div>
-
-                <button id="startQuiz">Take the Quiz</button>
             </section>
             <section>
                 <!--<h2>Your stats</h2>-->
