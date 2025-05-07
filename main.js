@@ -157,7 +157,10 @@ function checkNavVisibility() {
     }
 }
 function getResults() {
-    return JSON.parse(`[${localStorage.getItem('finishedGames')}]`);
+    const games = localStorage.getItem('finishedGames');
+    if(games == null)
+        return [];
+    return JSON.parse(`[${games}]`);
 }
 
 function showResults() {
